@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="1365.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionsav.menuController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="604.0" prefWidth="1349.0">
+         <children>
+            <BorderPane layoutX="310.0" layoutY="152.0" prefHeight="604.0" prefWidth="1365.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="57.0" prefWidth="888.0" styleClass="semi-top-form" stylesheets="@menuDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="navbar_form" layoutX="34.0" layoutY="-86.0" prefHeight="47.0" prefWidth="888.0" styleClass="top-form" stylesheets="@menuDesign.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIconView glyphName="DESKTOP" layoutX="22.0" layoutY="31.0" size="20" text="" />
+                              <Label fx:id="lblTitre" layoutX="348.0" layoutY="15.0" prefHeight="17.0" prefWidth="238.0" text="GESTION DES SERVCES APRES VENTE (SAV)" />
+                              <Button fx:id="close" layoutX="1230.0" layoutY="10.0" mnemonicParsing="false" onAction="#close" prefHeight="29.0" prefWidth="50.0" styleClass="close" stylesheets="@menuDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="CLOSE" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="minimize" layoutX="1180.0" layoutY="10.0" mnemonicParsing="false" onAction="#minimize" prefHeight="29.0" prefWidth="50.0" styleClass="minimize" stylesheets="@menuDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="MINUS" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="496.0" prefWidth="181.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="sidebar_form" layoutY="72.0" prefHeight="496.0" prefWidth="181.0" styleClass="nav-form" stylesheets="@menuDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="lblNomDashboard" alignment="CENTER" layoutX="8.0" layoutY="113.0" prefHeight="19.0" prefWidth="177.0" text="Nom" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="61.0" layoutX="112.0" layoutY="161.0" startX="-100.0" />
+                              <Button fx:id="btn_dashboard" layoutX="10.0" layoutY="172.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="153.0" styleClass="btn-nav-form" stylesheets="@menuDesign.css" text="Tableau de bord">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="HOME" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_admin" layoutX="10.0" layoutY="207.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="153.0" styleClass="btn-nav-form" stylesheets="@menuDesign.css" text="Administrateur">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="USER" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_client" layoutX="10.0" layoutY="242.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="153.0" styleClass="btn-nav-form" stylesheets="@menuDesign.css" text="Client">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="USERS" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_demande" layoutX="10.0" layoutY="277.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="153.0" styleClass="btn-nav-form" stylesheets="@menuDesign.css" text="Demande">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="ENVELOPE" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_intervention" layoutX="10.0" layoutY="312.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="153.0" styleClass="btn-nav-form" stylesheets="@menuDesign.css" text="Intervention">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_Tech" layoutX="10.0" layoutY="347.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="153.0" styleClass="btn-nav-form" stylesheets="@menuDesign.css" text="Technicien">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="GEAR" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_remise" layoutX="10.0" layoutY="417.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="153.0" styleClass="btn-nav-form" stylesheets="@menuDesign.css" text="Remise">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="EXCHANGE" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="logout" layoutX="63.0" layoutY="522.0" mnemonicParsing="false" onAction="#logout" stylesheets="@menuDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="btn-logout" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="btn_mail" layoutX="10.0" layoutY="382.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="153.0" styleClass="btn-nav-form" stylesheets="@menuDesign.css" text="Mail">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="COMMENT" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Label layoutX="8.0" layoutY="94.0" prefHeight="19.0" prefWidth="177.0" text="Bienvenu(e) sur votre espace" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblPrenomDashboard" alignment="CENTER" layoutX="8.0" layoutY="132.0" prefHeight="19.0" prefWidth="177.0" text="Prénom" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="47.0" layoutY="14.0" prefHeight="80.0" prefWidth="98.0" style="-fx-border-color: BLACK;">
+                                 <children>
+                                    <ImageView fx:id="ImageAdminDashboard" fitHeight="70.0" fitWidth="85.0" layoutX="6.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="547.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="dashboard_form" layoutX="52.0" layoutY="69.0" prefHeight="496.0" prefWidth="731.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="78.0" layoutY="14.0" prefHeight="110.0" prefWidth="923.0" stylesheets="@menuDesign.css">
+                                 <children>
+                                    <AnchorPane fx:id="anchorCard1" layoutX="35.0" layoutY="5.0" prefHeight="98.0" prefWidth="203.0" styleClass="card" stylesheets="@menuDesign.css">
+                                       <children>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="14.0" layoutY="69.0" size="4em" />
+                                          <Label layoutX="65.0" layoutY="14.0" prefHeight="19.0" prefWidth="130.0" text="Total Responsable(s)" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="102.0" layoutY="52.0" prefHeight="19.0" prefWidth="19.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorCard2" layoutX="252.0" layoutY="6.0" prefHeight="98.0" prefWidth="215.0" styleClass="card" stylesheets="@menuDesign.css">
+                                       <children>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="ENVELOPE" layoutX="14.0" layoutY="69.0" size="4em" />
+                                          <Label fx:id="lblTotDmd" layoutX="73.0" layoutY="14.0" prefHeight="19.0" prefWidth="131.0" text="Demande en cours" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="120.0" layoutY="52.0" prefHeight="19.0" prefWidth="19.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorCard3" layoutX="484.0" layoutY="6.0" prefHeight="98.0" prefWidth="202.0" styleClass="card" stylesheets="@menuDesign.css">
+                                       <children>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="GEAR" layoutX="14.0" layoutY="69.0" size="4em" />
+                                          <Label layoutX="54.0" layoutY="18.0" prefHeight="19.0" prefWidth="143.0" text="Produit(s) intervenu(s)" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="116.0" layoutY="52.0" prefHeight="19.0" prefWidth="19.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorCard4" layoutX="707.0" layoutY="8.0" prefHeight="98.0" prefWidth="202.0" styleClass="card" stylesheets="@menuDesign.css">
+                                       <children>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="GEAR" layoutX="14.0" layoutY="69.0" size="4em" />
+                                          <Label layoutX="66.0" layoutY="18.0" prefHeight="19.0" prefWidth="119.0" text="Total Techniciens" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="116.0" layoutY="52.0" prefHeight="19.0" prefWidth="19.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </AnchorPane>
+                              <AnchorPane layoutX="65.0" layoutY="138.0" prefHeight="516.0" prefWidth="936.0" styleClass="white-bg" stylesheets="@menuDesign.css">
+                                 <children>
+                                    <AnchorPane layoutX="14.0" layoutY="17.0" prefHeight="187.0" prefWidth="425.0" stylesheets="@menuDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <BarChart fx:id="barChart" layoutX="40.0" prefHeight="225.0" prefWidth="323.0" title="BarChart">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="458.0" layoutY="16.0" prefHeight="225.0" prefWidth="438.0" stylesheets="@menuDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <PieChart fx:id="pieChart" layoutX="77.0" layoutY="6.0" prefHeight="216.0" prefWidth="284.0" title="PieChart" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="btnNouveau" layoutX="30.0" layoutY="384.0" mnemonicParsing="false" onAction="#formDialogMdpPrinc" prefHeight="25.0" prefWidth="77.0" text="Nouveau" />
+                                    <TableView fx:id="tblAdmin1" layoutX="140.0" layoutY="291.0" onMousePressed="#tblTransfertAdmin" prefHeight="211.0" prefWidth="756.0">
+                                       <columns>
+                                          <TableColumn fx:id="columnIDRes1" prefWidth="54.0" text="ID" />
+                                          <TableColumn fx:id="columnNomRes1" prefWidth="96.0" text="Nom" />
+                                          <TableColumn fx:id="columnPrenomRes1" prefWidth="113.0" text="Prénom(s)" />
+                                          <TableColumn fx:id="columnAdrsRes1" prefWidth="112.0" text="Adresse" />
+                                          <TableColumn fx:id="columnEmailRes1" minWidth="0.0" prefWidth="113.0" text="Email" />
+                                          <TableColumn fx:id="columnTelRes1" prefWidth="112.0" text="Telephone" />
+                                          <TableColumn fx:id="columnTypeRes1" minWidth="0.0" prefWidth="192.0" text="Type" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <Line endX="872.0" layoutX="115.0" layoutY="131.0" startX="-29.0" stroke="#9631c4" />
+                              <Button fx:id="modebtn" layoutX="1051.0" layoutY="78.0" mnemonicParsing="false" onAction="#mode" text="Clair" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="admin_form" layoutX="14.0" layoutY="14.0" prefHeight="547.0" prefWidth="1174.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="141.0" layoutY="45.0" prefHeight="583.0" prefWidth="966.0" stylesheets="@menuDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="tblAdmin" layoutX="139.0" layoutY="292.0" onMousePressed="#tblTransfertAdmin" prefHeight="267.0" prefWidth="756.0">
+                                       <columns>
+                                          <TableColumn fx:id="columnIDRes" prefWidth="54.0" text="ID" />
+                                          <TableColumn fx:id="columnNomRes" prefWidth="96.0" text="Nom" />
+                                          <TableColumn fx:id="columnPrenomRes" prefWidth="113.0" text="Prénom(s)" />
+                                          <TableColumn fx:id="columnAdrsRes" prefWidth="112.0" text="Adresse" />
+                                          <TableColumn fx:id="columnEmailRes" minWidth="0.0" prefWidth="113.0" text="Email" />
+                                          <TableColumn fx:id="columnTelRes" prefWidth="112.0" text="Telephone" />
+                                          <TableColumn fx:id="columnTypeRes" minWidth="0.0" prefWidth="154.0" text="Type" />
+                                       </columns>
+                                    </TableView>
+                                    <TextField fx:id="txtRechAdmin" layoutX="698.0" layoutY="244.0" onKeyReleased="#rechercheAdmin" prefHeight="25.0" prefWidth="182.0" promptText="Rechercher" styleClass="search" stylesheets="@menuDesign.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="706.0" layoutY="260.0" />
+                                    <AnchorPane layoutX="47.0" layoutY="26.0" prefHeight="120.0" prefWidth="130.0" stylesheets="@menuDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <ImageView fx:id="ImageAdmin" fitHeight="120.0" fitWidth="130.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="btnInsert_Res" layoutX="63.0" layoutY="168.0" mnemonicParsing="false" onAction="#Insert_Res" prefHeight="25.0" prefWidth="86.0" styleClass="import-btn" stylesheets="@menuDesign.css" text="Insérer" />
+                                    <Label fx:id="lblidRes" alignment="CENTER" layoutX="410.0" layoutY="21.0" prefHeight="28.0" prefWidth="69.0" styleClass="textfield" stylesheets="@menuDesign.css" text="ID" />
+                                    <TextField fx:id="txtNomRes" layoutX="225.0" layoutY="55.0" prefHeight="25.0" prefWidth="198.0" promptText="Nom" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtPrenomRes" layoutX="225.0" layoutY="90.0" prefHeight="25.0" prefWidth="198.0" promptText="Prénom(s)" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtAdrsRes" layoutX="225.0" layoutY="124.0" prefHeight="25.0" prefWidth="198.0" promptText="Adresse" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtEmailRes" layoutX="466.0" layoutY="55.0" prefHeight="25.0" prefWidth="198.0" promptText="Email" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtTelRes" layoutX="466.0" layoutY="88.0" prefHeight="25.0" prefWidth="198.0" promptText="Telephone" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtTypeRes" layoutX="466.0" layoutY="124.0" prefHeight="25.0" prefWidth="198.0" promptText="Type" styleClass="textfield" stylesheets="@menuDesign.css" text="Secondaire" />
+                                    <TextField fx:id="txtCodeRes" layoutX="346.0" layoutY="168.0" prefHeight="25.0" prefWidth="198.0" promptText="Code d'autorisation (Gmail)" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <Button fx:id="btnAjout_Res" layoutX="392.0" layoutY="210.0" mnemonicParsing="false" onAction="#Ajout_Res" prefHeight="26.0" prefWidth="88.0" styleClass="add-btn" stylesheets="@menuDesign.css" text="Ajouter" />
+                                    <Button fx:id="btnModif_Res" layoutX="397.0" layoutY="256.0" mnemonicParsing="false" onAction="#Modif_Res" prefHeight="26.0" prefWidth="84.0" styleClass="update-btn" stylesheets="@menuDesign.css" text="modif" />
+                                    <Button fx:id="btnSup_Res" layoutX="499.0" layoutY="210.0" mnemonicParsing="false" onAction="#Sup_Res" prefHeight="26.0" prefWidth="90.0" styleClass="delete-btn" stylesheets="@menuDesign.css" text="Supprimer" />
+                                    <Button fx:id="btnEffacer_Res" layoutX="274.0" layoutY="210.0" mnemonicParsing="false" onAction="#Effacer_Res" prefHeight="26.0" prefWidth="100.0" styleClass="clear-btn" stylesheets="@menuDesign.css" text="Effacer" />
+                                    <AnchorPane layoutX="721.0" layoutY="62.0" prefHeight="84.0" prefWidth="104.0" stylesheets="@menuDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <ImageView fx:id="qrCodeImageViewAdmin" fitHeight="67.0" fitWidth="85.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="generateQRCodeBtn" layoutX="848.0" layoutY="76.0" mnemonicParsing="false" onAction="#generateQrAdmin" prefHeight="25.0" prefWidth="88.0" text="Générer" />
+                                    <Button fx:id="btnQr" layoutX="848.0" layoutY="112.0" mnemonicParsing="false" onAction="#saveQrAdmin" prefHeight="25.0" prefWidth="87.0" text="Enregistrer" />
+                                    <Button fx:id="showDialog" layoutX="728.0" layoutY="169.0" mnemonicParsing="false" onAction="#formDialog" prefHeight="25.0" prefWidth="91.0" text="Bagde" />
+                                    <Button fx:id="btnScan" layoutX="92.0" layoutY="211.0" mnemonicParsing="false" onAction="#scanQR" text="Scan" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="client_form" layoutX="14.0" layoutY="14.0" prefHeight="496.0" prefWidth="1113.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="472.0" prefWidth="336.0" stylesheets="@menuDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="txtNomCli" layoutX="39.0" layoutY="172.0" prefHeight="25.0" prefWidth="231.0" promptText="Nom" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtPrenomCli" layoutX="39.0" layoutY="210.0" prefHeight="25.0" prefWidth="231.0" promptText="Prénom(s)" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtEmailCli" layoutX="39.0" layoutY="248.0" prefHeight="25.0" prefWidth="231.0" promptText="Email" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtTelCli" layoutX="40.0" layoutY="287.0" prefHeight="25.0" prefWidth="231.0" promptText="Télephone" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtFactCli" layoutX="39.0" layoutY="360.0" prefHeight="25.0" prefWidth="231.0" promptText="Numero de la facture" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <Label fx:id="lblidCli" alignment="CENTER" layoutX="39.0" layoutY="137.0" prefHeight="17.0" prefWidth="59.0" styleClass="textfield" stylesheets="@menuDesign.css" text="ID" />
+                                    <TextField fx:id="txtAdrsCli" layoutX="39.0" layoutY="324.0" prefHeight="25.0" prefWidth="231.0" promptText="Adresse" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <Button fx:id="btnAjout_Cli" layoutX="26.0" layoutY="397.0" mnemonicParsing="false" onAction="#Ajout_Cli" styleClass="add-btn" stylesheets="@menuDesign.css" text="Ajout" />
+                                    <Button fx:id="btnModif_Cli" layoutX="89.0" layoutY="397.0" mnemonicParsing="false" onAction="#Modif_Cli" styleClass="update-btn" stylesheets="@menuDesign.css" text="Modif" />
+                                    <Button fx:id="btnSup_Cli" layoutX="155.0" layoutY="397.0" mnemonicParsing="false" onAction="#Sup_Cli" styleClass="delete-btn" stylesheets="@menuDesign.css" text="Suppr" />
+                                    <Button fx:id="btnEfface_Cli" layoutX="218.0" layoutY="397.0" mnemonicParsing="false" onAction="#Efface_Cli" styleClass="clear-btn" stylesheets="@menuDesign.css" text="Efface" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="363.0" layoutY="12.0" prefHeight="472.0" prefWidth="732.0" stylesheets="@menuDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="tblClient" layoutX="13.0" layoutY="56.0" onMousePressed="#tblTransfertClient" prefHeight="402.0" prefWidth="706.0">
+                                      <columns>
+                                        <TableColumn fx:id="columnIdCli" prefWidth="58.0" text="ID" />
+                                        <TableColumn fx:id="columnNomCli" prefWidth="129.0" text="Nom" />
+                                          <TableColumn fx:id="columnPrenomCli" minWidth="0.0" prefWidth="83.0" text="Prénom(s)" />
+                                          <TableColumn fx:id="columnEmailCli" minWidth="0.0" prefWidth="121.0" text="Email" />
+                                          <TableColumn fx:id="columnTelCli" prefWidth="109.0" text="Télephone" />
+                                          <TableColumn fx:id="columnAdrsCli" prefWidth="133.0" text="Adresse" />
+                                          <TableColumn fx:id="columnFactCli" prefWidth="72.0" text="N° facture" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="txtRechClient" layoutX="517.0" layoutY="25.0" onKeyReleased="#rechercheAdmin" prefHeight="25.0" prefWidth="182.0" promptText="Rechercher" styleClass="search" stylesheets="@menuDesign.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="525.0" layoutY="41.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="dialog_form" layoutX="395.0" layoutY="29.0" prefHeight="545.0" prefWidth="423.0" style="-fx-background-color: WHITE; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5,0,0,0);" visible="false">
+                           <children>
+                              <AnchorPane fx:id="cardAdmin" layoutX="14.0" layoutY="43.0" prefHeight="457.0" prefWidth="388.0" style="-fx-border-color: BLACK;">
+                                 <children>
+                                    <AnchorPane layoutX="16.0" layoutY="45.0" prefHeight="90.0" prefWidth="93.0" style="-fx-border-color: black; -fx-border-radius: 100%;">
+                                       <children>
+                                          <ImageView fx:id="ImgViewCardAdmin" fitHeight="90.0" fitWidth="93.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="37.0" layoutY="165.0" prefHeight="27.0" prefWidth="62.0" text="Adresse " />
+                                    <Label layoutX="36.0" layoutY="198.0" prefHeight="27.0" prefWidth="64.0" text="Email " />
+                                    <Label layoutX="37.0" layoutY="233.0" prefHeight="27.0" prefWidth="71.0" text="Téléphone " />
+                                    <Label layoutX="75.0" layoutY="308.0" prefHeight="27.0" prefWidth="239.0" text="Administrateur et Responsable du magasin" />
+                                    <Label fx:id="lblNomRes" layoutX="119.0" layoutY="77.0" prefHeight="27.0" prefWidth="176.0" />
+                                    <Label fx:id="lblPrenomRes" layoutX="119.0" layoutY="109.0" prefHeight="27.0" prefWidth="176.0" />
+                                    <Label fx:id="lblAdrsRes" layoutX="115.0" layoutY="165.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: black;" />
+                                    <Label fx:id="lblEmailRes" layoutX="115.0" layoutY="198.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: black;" />
+                                    <Label fx:id="lblTelRes" layoutX="115.0" layoutY="233.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: black;" />
+                                    <AnchorPane layoutX="163.0" layoutY="335.0" prefHeight="56.0" prefWidth="45.0" style="-fx-border-color: black;">
+                                       <children>
+                                          <ImageView fx:id="ImgQrAdmin" fitHeight="55.0" fitWidth="59.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="302.0" layoutY="14.0" prefHeight="63.0" prefWidth="72.0" style="-fx-border-color: BLACK;" />
+                                    <FontAwesomeIconView fill="RED" glyphName="WARNING" layoutX="29.0" layoutY="413.0" size="20" text="" />
+                                    <Label layoutX="53.0" layoutY="392.0" prefHeight="27.0" prefWidth="308.0" text="Aucun employé ne peut se présenter dans le magasin" textFill="RED">
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="105.0" layoutY="416.0" prefHeight="27.0" prefWidth="192.0" text="sans la présence de cette bagde !" textFill="RED">
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="36.0" layoutY="273.0" prefHeight="27.0" prefWidth="71.0" text="Type" />
+                                    <Label fx:id="lblTypeRes" layoutX="114.0" layoutY="273.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: black;" />
+                                 </children>
+                              </AnchorPane>
+                              <Button fx:id="btnPrintCardAdmin" layoutX="303.0" layoutY="506.0" mnemonicParsing="false" onAction="#printCardAdmin" text="Imprimer" />
+                              <Button fx:id="btnCloseDialog" layoutX="348.0" layoutY="14.0" mnemonicParsing="false" onAction="#formDialog" text="Fermer" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="Tech_form" layoutX="14.0" layoutY="7.0" prefHeight="547.0" prefWidth="1185.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="23.0" layoutY="12.0" prefHeight="524.0" prefWidth="321.0" stylesheets="@menuDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="29.0" layoutY="14.0" prefHeight="120.0" prefWidth="130.0" stylesheets="@menuDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <ImageView fx:id="ImageTech" fitHeight="120.0" fitWidth="130.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="btnInsert_Teh" layoutX="173.0" layoutY="52.0" mnemonicParsing="false" onAction="#Insert_Tech" prefHeight="25.0" prefWidth="86.0" styleClass="import-btn" stylesheets="@menuDesign.css" text="Insérer" />
+                                    <Label fx:id="lblidTech" alignment="CENTER" layoutX="26.0" layoutY="138.0" prefHeight="28.0" prefWidth="69.0" styleClass="textfield" stylesheets="@menuDesign.css" text="ID" />
+                                    <TextField fx:id="txtNomTech" layoutX="26.0" layoutY="174.0" prefHeight="25.0" prefWidth="198.0" promptText="Nom" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtPrenomTech" layoutX="26.0" layoutY="209.0" prefHeight="25.0" prefWidth="198.0" promptText="Prénom(s)" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtAdrsTech" layoutX="26.0" layoutY="243.0" prefHeight="25.0" prefWidth="198.0" promptText="Adresse" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtEmailTech" layoutX="26.0" layoutY="279.0" prefHeight="25.0" prefWidth="198.0" promptText="Email" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtTelTech" layoutX="26.0" layoutY="315.0" prefHeight="25.0" prefWidth="198.0" promptText="Telephone" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <Button fx:id="btnAjout_Tech" layoutX="31.0" layoutY="366.0" mnemonicParsing="false" onAction="#Ajout_Tech" prefHeight="25.0" prefWidth="59.0" styleClass="add-btn" stylesheets="@menuDesign.css" text="Ajouter" />
+                                    <Button fx:id="btnModif_Tech" layoutX="99.0" layoutY="366.0" mnemonicParsing="false" onAction="#Modif_Tech" prefHeight="25.0" prefWidth="53.0" styleClass="update-btn" stylesheets="@menuDesign.css" text="modif" />
+                                    <Button fx:id="btnSup_Tech" layoutX="159.0" layoutY="366.0" mnemonicParsing="false" onAction="#Sup_Tech" prefHeight="25.0" prefWidth="53.0" styleClass="delete-btn" stylesheets="@menuDesign.css" text="suppr" />
+                                    <Button fx:id="btnEffacer_Tech" layoutX="220.0" layoutY="366.0" mnemonicParsing="false" onAction="#Efface_Tech" prefHeight="25.0" prefWidth="59.0" styleClass="clear-btn" stylesheets="@menuDesign.css" text="effacer" />
+                                    <AnchorPane layoutX="40.0" layoutY="426.0" prefHeight="84.0" prefWidth="104.0" stylesheets="@menuDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <ImageView fx:id="qrCodeImageViewTech" fitHeight="72.0" fitWidth="95.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="generateQRCodeTech" layoutX="173.0" layoutY="435.0" mnemonicParsing="false" onAction="#generateQrTech" text="Générer" />
+                                    <Button fx:id="btnQrTech" layoutX="173.0" layoutY="475.0" mnemonicParsing="false" onAction="#saveQrTech" text="save" />
+                                    <Button fx:id="btnScanTech" layoutX="249.0" layoutY="435.0" mnemonicParsing="false" onAction="#scanQR" text="Scan" />
+                                    <Button fx:id="showDialogTech" layoutX="233.0" layoutY="475.0" mnemonicParsing="false" onAction="#formDialogTech" text="btnCard" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="366.0" layoutY="12.0" prefHeight="523.0" prefWidth="763.0" stylesheets="@menuDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="tblTech" layoutX="14.0" layoutY="45.0" onMousePressed="#tblTransfertTech" prefHeight="464.0" prefWidth="787.0">
+                                       <columns>
+                                          <TableColumn fx:id="columnIdTech" prefWidth="54.0" text="ID" />
+                                          <TableColumn fx:id="columnNomTech" prefWidth="145.0" text="Nom" />
+                                          <TableColumn fx:id="columnPrenomTech" prefWidth="164.0" text="Prénom(s)" />
+                                          <TableColumn fx:id="columnAdrsTech" prefWidth="116.0" text="Adresse" />
+                                          <TableColumn fx:id="columnEmailTech" prefWidth="199.0" text="Email" />
+                                          <TableColumn fx:id="columnTelTech" prefWidth="116.0" text="Telephone" />
+                                       </columns>
+                                    </TableView>
+                                    <TextField fx:id="txtRechATech" layoutX="603.0" layoutY="14.0" onKeyReleased="#rechercheTech" prefHeight="25.0" prefWidth="182.0" promptText="Rechercher" styleClass="search" stylesheets="@menuDesign.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="611.0" layoutY="30.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                        <AnchorPane fx:id="dialog_formTech" layoutX="318.0" layoutY="24.0" prefHeight="499.0" prefWidth="357.0" style="-fx-background-color: WHITE; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5,0,0,0);" visible="false">
+                           <children>
+                              <AnchorPane fx:id="cardTech" layoutX="14.0" layoutY="43.0" prefHeight="412.0" prefWidth="330.0">
+                                 <children>
+                                    <AnchorPane layoutX="118.0" layoutY="14.0" prefHeight="90.0" prefWidth="93.0" style="-fx-border-color: black;">
+                                       <children>
+                                          <ImageView fx:id="ImgViewCardTech" fitHeight="90.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="28.0" layoutY="126.0" prefHeight="27.0" prefWidth="62.0" text="Nom " />
+                                    <Label layoutX="28.0" layoutY="163.0" prefHeight="27.0" prefWidth="71.0" text="Prénom(s) " />
+                                    <Label layoutX="28.0" layoutY="199.0" prefHeight="27.0" prefWidth="62.0" text="Adresse " />
+                                    <Label layoutX="27.0" layoutY="232.0" prefHeight="27.0" prefWidth="64.0" text="Email " />
+                                    <Label layoutX="28.0" layoutY="267.0" prefHeight="27.0" prefWidth="71.0" text="Téléphone " />
+                                    <Label alignment="CENTER" layoutX="46.0" layoutY="319.0" prefHeight="27.0" prefWidth="239.0" text="Technicien du magasin" />
+                                    <Label fx:id="lblNomTech" layoutX="106.0" layoutY="126.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: black;" />
+                                    <Label fx:id="lblPrenomTech" layoutX="106.0" layoutY="163.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: black;" />
+                                    <Label fx:id="lblAdrsTech" layoutX="106.0" layoutY="199.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: black;" />
+                                    <Label fx:id="lblEmailTech" layoutX="106.0" layoutY="232.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: black;" />
+                                    <Label fx:id="lblTelTech" layoutX="106.0" layoutY="267.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: black;" />
+                                    <AnchorPane layoutX="135.0" layoutY="346.0" prefHeight="56.0" prefWidth="45.0" style="-fx-border-color: black;">
+                                       <children>
+                                          <ImageView fx:id="ImgQrTech" fitHeight="55.0" fitWidth="59.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <Button fx:id="btnPrintCardTech" layoutX="268.0" layoutY="460.0" mnemonicParsing="false" onAction="#printCardTech" text="Imprimer" />
+                              <Button fx:id="btnCloseDialogTech" layoutX="291.0" layoutY="14.0" mnemonicParsing="false" onAction="#formDialogTech" text="Fermer" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="demande_form" prefHeight="547.0" prefWidth="1185.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TitledPane animated="false" layoutX="79.0" layoutY="14.0" prefHeight="308.0" prefWidth="336.0" text="untitled">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="txtNumDmd" layoutX="14.0" layoutY="22.0" prefHeight="25.0" prefWidth="231.0" promptText="Num" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <TextField fx:id="txtCauseDmd" layoutX="15.0" layoutY="108.0" prefHeight="25.0" prefWidth="231.0" promptText="Cause" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <TextField fx:id="txtidCliDmd" layoutX="15.0" layoutY="66.0" prefHeight="25.0" prefWidth="231.0" promptText="id client" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <TextField fx:id="txtDateDmd" layoutX="14.0" layoutY="153.0" prefHeight="25.0" prefWidth="231.0" promptText="Date" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <TextField fx:id="txtDelaisDmd" layoutX="15.0" layoutY="200.0" prefHeight="25.0" prefWidth="231.0" promptText="Delais" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <TextField fx:id="txtStatutDmd" editable="false" layoutX="15.0" layoutY="240.0" prefHeight="25.0" prefWidth="231.0" promptText="Statut" styleClass="textfield" stylesheets="@menuDesign.css" text="En attente" />
+                                          <Button fx:id="btnModif_Dmd" layoutX="265.0" layoutY="241.0" mnemonicParsing="false" onAction="#Modif_Dmd" styleClass="update-btn" stylesheets="@menuDesign.css" text="Modif" />
+                                          <Button fx:id="btnShowDmd" layoutX="267.0" layoutY="201.0" mnemonicParsing="false" onAction="#formDialogDmd" prefHeight="25.0" prefWidth="51.0" text="Voir" />
+                                          <Button fx:id="btnEfface_Dmd" layoutX="267.0" layoutY="168.0" mnemonicParsing="false" onAction="#Efface_Dmd" prefHeight="25.0" prefWidth="51.0" text="effac" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <Button fx:id="btnAjout_SAV" layoutX="1015.0" layoutY="68.0" mnemonicParsing="false" onAction="#Ajout_SAV" prefHeight="26.0" prefWidth="82.0" styleClass="add-btn" stylesheets="@menuDesign.css" text="Ajout" />
+                              <TitledPane animated="false" layoutX="442.0" layoutY="14.0" prefHeight="308.0" prefWidth="533.0" text="untitled">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="btnModif_Pro" layoutX="465.0" layoutY="241.0" mnemonicParsing="false" onAction="#Modif_Cli" styleClass="update-btn" stylesheets="@menuDesign.css" text="Modif" />
+                                          <TextField fx:id="txtNumDmdPro" layoutX="221.0" layoutY="73.0" prefHeight="25.0" prefWidth="231.0" promptText="Num" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <TextField fx:id="txtNomPro" layoutX="222.0" layoutY="121.0" prefHeight="25.0" prefWidth="231.0" promptText="Nom" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <TextField fx:id="txtRefPro" layoutX="221.0" layoutY="32.0" prefHeight="25.0" prefWidth="231.0" promptText="Reference" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <TextField fx:id="txtGarPro" layoutX="221.0" layoutY="204.0" prefHeight="25.0" prefWidth="231.0" promptText="Garantie" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <TextField fx:id="txtPrixPro" layoutX="221.0" layoutY="242.0" prefHeight="25.0" prefWidth="231.0" promptText="Prix" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <TextField fx:id="txtDescPro" layoutX="221.0" layoutY="166.0" prefHeight="25.0" prefWidth="231.0" promptText="Description" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                          <Button fx:id="btnAjout_Pro" layoutX="467.0" layoutY="205.0" mnemonicParsing="false" onAction="#Ajout_Pro" styleClass="add-btn" stylesheets="@menuDesign.css" text="Ajout" />
+                                          <AnchorPane layoutX="45.0" layoutY="15.0" prefHeight="49.0" prefWidth="58.0" stylesheets="@menuDesign.css">
+                                             <styleClass>
+                                                <String fx:value="white-bg" />
+                                                <String fx:value="shadow" />
+                                             </styleClass>
+                                             <children>
+                                                <ImageView fx:id="ImagePro" fitHeight="67.0" fitWidth="84.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+                                             </children>
+                                          </AnchorPane>
+                                          <Button fx:id="btnInsert_Pro" layoutX="44.0" layoutY="100.0" mnemonicParsing="false" onAction="#Insert_Pro" prefHeight="25.0" prefWidth="86.0" styleClass="import-btn" stylesheets="@menuDesign.css" text="Insérer" />
+                                          <Button fx:id="btnShowPro" layoutX="90.0" layoutY="222.0" mnemonicParsing="false" onAction="#formDialogPro" prefHeight="25.0" prefWidth="51.0" text="Voir" />
+                                          <Button fx:id="btnEfface_Pro" layoutX="90.0" layoutY="189.0" mnemonicParsing="false" onAction="#Efface_Pro" prefHeight="25.0" prefWidth="51.0" text="effac" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <Button fx:id="btnEfface_SAV" layoutX="1015.0" layoutY="105.0" mnemonicParsing="false" onAction="#Ajout_SAV" prefHeight="26.0" prefWidth="83.0" styleClass="add-btn" stylesheets="@menuDesign.css" text="Effacer" />
+                              <Button fx:id="btnSuppr_SAV" layoutX="1015.0" layoutY="142.0" mnemonicParsing="false" onAction="#Sup_SAV" styleClass="add-btn" stylesheets="@menuDesign.css" text="Supprimer" />
+                              <TextField fx:id="txtRechSAV" layoutX="983.0" layoutY="191.0" promptText="Rechercher" />
+                              <Button layoutX="1032.0" layoutY="228.0" mnemonicParsing="false" onAction="#rechercheSAV" text="search" />
+                              <TableView fx:id="tblSAV" layoutX="79.0" layoutY="333.0" onMousePressed="#tblTransfertSAV" prefHeight="210.0" prefWidth="897.0">
+                                <columns>
+                                  <TableColumn fx:id="columnNumDmdSAV" prefWidth="58.0" text="N°" />
+                                  <TableColumn fx:id="columnIdCliSAV" prefWidth="92.0" text="ID Client" />
+                                    <TableColumn fx:id="columnCauseSAV" prefWidth="98.0" text="Cause" />
+                                    <TableColumn fx:id="columnDateSAV" prefWidth="92.0" text="Date" />
+                                    <TableColumn fx:id="columnDelaiSAV" prefWidth="72.0" text="Délais" />
+                                    <TableColumn fx:id="columnRefSAV" prefWidth="77.0" text="Référence" />
+                                    <TableColumn fx:id="columnNomProSAV" prefWidth="84.0" text="Nom Produit" />
+                                    <TableColumn fx:id="columnDescSAV" prefWidth="97.0" text="Description" />
+                                    <TableColumn fx:id="columnGarSAV" prefWidth="69.0" text="Garantie" />
+                                    <TableColumn fx:id="columnPrixSAV" prefWidth="63.0" text="Prix" />
+                                    <TableColumn fx:id="columnStatutSAV" prefWidth="94.0" text="Statut" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="dmdSAV_form" layoutX="135.0" layoutY="100.0" prefHeight="288.0" prefWidth="541.0" visible="false">
+                           <children>
+                              <TableView fx:id="tblDemande" layoutX="14.0" layoutY="68.0" prefHeight="220.0" prefWidth="541.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
+                                <columns>
+                                  <TableColumn fx:id="columnNumDmd" prefWidth="84.99996948242188" text="N° Demande" />
+                                  <TableColumn fx:id="columnIdCliDmd" prefWidth="76.0" text="Id du Client" />
+                                    <TableColumn fx:id="columnCauseDmd" prefWidth="114.0" text="Cause" />
+                                    <TableColumn fx:id="columnDateDmd" prefWidth="88.0" text="Date" />
+                                    <TableColumn fx:id="columnDelaisDmd" prefWidth="88.0" text="Délais" />
+                                    <TableColumn fx:id="columnStatutDmd" prefWidth="88.0" text="Statut" />
+                                </columns>
+                              </TableView>
+                              <TextField fx:id="txtRechDmd" layoutX="365.0" layoutY="40.0" prefHeight="28.0" prefWidth="162.0" promptText="Rechercher" />
+                              <Button fx:id="btnCloseDmd" layoutX="503.0" layoutY="2.0" mnemonicParsing="false" onAction="#formDialogDmd" text="X" />
+                              <Button layoutX="188.0" layoutY="42.0" mnemonicParsing="false" onAction="#tblTransfertDemande" text="valider" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="proSAV_form" layoutX="145.0" layoutY="110.0" prefHeight="288.0" prefWidth="541.0" visible="false">
+                           <children>
+                              <TableView fx:id="tblProduit" layoutX="14.0" layoutY="68.0" prefHeight="220.0" prefWidth="541.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
+                                 <columns>
+                                    <TableColumn fx:id="columnRefPro" prefWidth="84.99996948242188" text="Référence" />
+                                    <TableColumn fx:id="columnNumDmdPro" prefWidth="76.0" text="N° Demande" />
+                                    <TableColumn fx:id="columnNomPro" prefWidth="114.0" text="Nom Produit" />
+                                    <TableColumn fx:id="columnDescPro" prefWidth="88.0" text="Description" />
+                                    <TableColumn fx:id="columnGarPro" prefWidth="88.0" text="Garantie" />
+                                    <TableColumn fx:id="columnPrixPro" prefWidth="88.0" text="Prix" />
+                                 </columns>
+                              </TableView>
+                              <TextField fx:id="txtRechPro" layoutX="365.0" layoutY="40.0" prefHeight="28.0" prefWidth="162.0" promptText="Rechercher" />
+                              <Button fx:id="btnClosePro" layoutX="503.0" layoutY="2.0" mnemonicParsing="false" onAction="#formDialogPro" text="X" />
+                              <Button layoutX="188.0" layoutY="42.0" mnemonicParsing="false" onAction="#tblTransfertPro" text="valider" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="Inter_form" layoutX="7.0" layoutY="24.0" prefHeight="547.0" prefWidth="1185.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="58.0" layoutY="14.0" prefHeight="472.0" prefWidth="336.0" stylesheets="@menuDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="txtRefProInter" layoutX="42.0" layoutY="144.0" prefHeight="25.0" prefWidth="231.0" promptText="num produit" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtIdTechInter" layoutX="42.0" layoutY="182.0" prefHeight="25.0" prefWidth="231.0" promptText="id tech" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtDateInter" layoutX="43.0" layoutY="221.0" prefHeight="25.0" prefWidth="231.0" promptText="Date intervention" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtTypeInter" layoutX="42.0" layoutY="294.0" prefHeight="25.0" prefWidth="231.0" promptText="Type" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <Label fx:id="lblidinter" alignment="CENTER" layoutX="42.0" layoutY="71.0" prefHeight="17.0" prefWidth="59.0" styleClass="textfield" stylesheets="@menuDesign.css" text="ID" />
+                                    <TextField fx:id="txtDateFinInter" layoutX="42.0" layoutY="258.0" prefHeight="25.0" prefWidth="231.0" promptText="delais intervention" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <Button fx:id="btnAjout_Inter" layoutX="29.0" layoutY="432.0" mnemonicParsing="false" onAction="#Ajout_Inter" styleClass="add-btn" stylesheets="@menuDesign.css" text="Ajout" />
+                                    <Button fx:id="btnModif_Inter" layoutX="92.0" layoutY="432.0" mnemonicParsing="false" onAction="#Modif_Inter" styleClass="update-btn" stylesheets="@menuDesign.css" text="Modif" />
+                                    <Button fx:id="btnSup_Inter" layoutX="158.0" layoutY="432.0" mnemonicParsing="false" onAction="#Sup_Inter" styleClass="delete-btn" stylesheets="@menuDesign.css" text="Suppr" />
+                                    <Button fx:id="btnEfface_Inter" layoutX="221.0" layoutY="432.0" mnemonicParsing="false" onAction="#Efface_Inter" styleClass="clear-btn" stylesheets="@menuDesign.css" text="Efface" />
+                                    <TextField fx:id="txtCoutInter" layoutX="42.0" layoutY="331.0" prefHeight="25.0" prefWidth="231.0" promptText="cout" styleClass="textfield" stylesheets="@menuDesign.css" />
+                                    <TextField fx:id="txtStatutInter" layoutX="42.0" layoutY="373.0" prefHeight="25.0" prefWidth="231.0" promptText="statut" styleClass="textfield" stylesheets="@menuDesign.css" text="En cours" />
+                                    <Button fx:id="btn_InterTerminé" layoutX="209.0" layoutY="78.0" mnemonicParsing="false" onAction="#Maj_DmdInter" text="Terminé" />
+                                    <Button fx:id="btnShowMail" layoutX="209.0" layoutY="26.0" mnemonicParsing="false" onAction="#formDialogMail" prefHeight="25.0" prefWidth="62.0" text="Email" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="430.0" layoutY="14.0" prefHeight="472.0" prefWidth="732.0" stylesheets="@menuDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="tblintervention" layoutX="13.0" layoutY="56.0" onMousePressed="#tblTransfertInter" prefHeight="402.0" prefWidth="706.0">
+                                       <columns>
+                                          <TableColumn fx:id="columnIdInter" prefWidth="40.0" text="ID" />
+                                          <TableColumn fx:id="columnRefProInter" prefWidth="126.0" text="Reference Produit" />
+                                          <TableColumn fx:id="columnIdTechInter" minWidth="0.0" prefWidth="87.0" text="ID Technicien" />
+                                          <TableColumn fx:id="columnDateInter" minWidth="0.0" prefWidth="88.0" text="Date" />
+                                          <TableColumn fx:id="columnDateFinInter" prefWidth="78.0" text="Fin" />
+                                          <TableColumn fx:id="columnTypeInter" prefWidth="89.0" text="Type" />
+                                          <TableColumn fx:id="columnCoutInter" prefWidth="83.0" text="Coût" />
+                                          <TableColumn fx:id="columnStatutInter" prefWidth="109.0" text="Statut" />
+                                       </columns>
+                                    </TableView>
+                                    <TextField fx:id="txtRechInter" layoutX="517.0" layoutY="25.0" onKeyReleased="#rechercheAdmin" prefHeight="25.0" prefWidth="182.0" promptText="Rechercher" styleClass="search" stylesheets="@menuDesign.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="525.0" layoutY="41.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                        <AnchorPane fx:id="mail_form" layoutX="248.0" layoutY="99.0" prefHeight="345.0" prefWidth="389.0" style="-fx-border-color: black; -fx-border-width: 2px;" visible="false">
+                           <children>
+                              <TitledPane animated="false" prefHeight="219.0" prefWidth="301.0" text="E-mail" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="20.0" layoutY="14.0" text="Destinataire :" />
+                                          <TextField fx:id="txtdestinataire" layoutX="20.0" layoutY="31.0" prefHeight="25.0" prefWidth="235.0" />
+                                          <Label layoutX="21.0" layoutY="123.0" text="Message :" />
+                                          <TextArea fx:id="txtMessage" editable="false" layoutX="22.0" layoutY="149.0" prefHeight="120.0" prefWidth="345.0" text="Madame, Monsieur, l'intervention de votre produit est terminé, &#10;votre demande a été résolue avec succes, vous pouvez donc &#10;le récupérer auprès du responsable à partir de demain !&#10;Merci infiniment pour votre attente ! 😊&#10;&#10;Computer Store toujours à votre disposition ! 💖" />
+                                          <Button fx:id="btn_send" layoutX="292.0" layoutY="280.0" mnemonicParsing="false" onAction="#envoyerEmail" prefHeight="25.0" prefWidth="74.0" text="Envoyer">
+                                             <graphic>
+                                                <FontAwesomeIconView glyphName="SEND" />
+                                             </graphic>
+                                          </Button>
+                                          <Label layoutX="20.0" layoutY="70.0" text="Objet :" />
+                                          <TextField fx:id="txtObjet" layoutX="21.0" layoutY="87.0" prefHeight="25.0" prefWidth="234.0" text="Service Après Vente" />
+                                          <Button fx:id="btnCloseMail" layoutX="200.0" layoutY="280.0" mnemonicParsing="false" onAction="#formDialogMail" prefHeight="25.0" prefWidth="88.0" text="Annuler" />
+                                          <FontAwesomeIconView glyphName="UNDO" layoutX="207.0" layoutY="295.0" />
+                                          <Label fx:id="lbldmdSMS" layoutX="301.0" layoutY="14.0" prefHeight="28.0" prefWidth="52.0" text="ID dmd" />
+                                          <Label fx:id="lblStatutMail" layoutX="301.0" layoutY="51.0" prefHeight="28.0" prefWidth="52.0" text="Réussi" />
+                                          <Label fx:id="lblDateMail" layoutX="301.0" layoutY="86.0" prefHeight="28.0" prefWidth="52.0" text="Date" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="Remise_form" layoutX="62.0" layoutY="57.0" prefHeight="432.0" prefWidth="917.0" style="-fx-border-color: black;" visible="false">
+                           <children>
+                              <AnchorPane layoutX="12.0" layoutY="9.0" prefHeight="414.0" prefWidth="359.0">
+                                 <children>
+                                    <TextField fx:id="txtNumDmdRem" layoutX="31.0" layoutY="117.0" prefHeight="25.0" prefWidth="70.0" promptText="id dmd" />
+                                    <TextField fx:id="txtDateRem" layoutX="31.0" layoutY="153.0" prefHeight="25.0" prefWidth="277.0" promptText="Date ech" />
+                                    <TextField fx:id="txtRefRem" layoutX="31.0" layoutY="310.0" prefHeight="25.0" prefWidth="277.0" promptText="REf nou" />
+                                    <TextField fx:id="txtProRem" layoutX="31.0" layoutY="277.0" prefHeight="25.0" prefWidth="277.0" promptText="Nouveau mat" />
+                                    <Label fx:id="lblidRem" alignment="CENTER" layoutX="31.0" layoutY="79.0" prefHeight="23.0" prefWidth="42.0" style="-fx-border-color: black;" text="ID" />
+                                    <TextArea fx:id="txtDescRem" layoutX="31.0" layoutY="192.0" prefHeight="68.0" prefWidth="277.0" promptText="descript" />
+                                    <Button layoutX="53.0" layoutY="362.0" mnemonicParsing="false" onAction="#Ajout_Remise" text="Ajout" />
+                                    <Button layoutX="113.0" layoutY="362.0" mnemonicParsing="false" onAction="#Modif_Remise" text="Modif" />
+                                    <Button layoutX="176.0" layoutY="362.0" mnemonicParsing="false" onAction="#Sup_Remise" text="Suppr" />
+                                    <Button layoutX="239.0" layoutY="362.0" mnemonicParsing="false" onAction="#Efface_Remise" text="Efface" />
+                                    <Button fx:id="btnShowRecu" layoutX="267.0" layoutY="39.0" mnemonicParsing="false" onAction="#formDialogRecu" text="Reçu" />
+                                    <TextField fx:id="txtIdResRem" layoutX="113.0" layoutY="117.0" prefHeight="25.0" prefWidth="70.0" promptText="id Res" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="381.0" layoutY="32.0" prefHeight="372.0" prefWidth="513.0">
+                                 <children>
+                                    <TableView fx:id="tblRemise" layoutX="14.0" layoutY="57.0" onMousePressed="#tblTransfertRemise" prefHeight="303.0" prefWidth="485.0">
+                                      <columns>
+                                        <TableColumn fx:id="columnIdRem" prefWidth="54.0" text="ID" />
+                                        <TableColumn fx:id="columnNumDmdRem" prefWidth="64.0" text="N° Demande" />
+                                          <TableColumn fx:id="columnDateRem" prefWidth="63.0" text="Date" />
+                                          <TableColumn fx:id="columnDescRem" prefWidth="82.0" text="Description" />
+                                          <TableColumn fx:id="columnProRem" prefWidth="79.0" text="Nouveau produit" />
+                                          <TableColumn fx:id="columnRefRem" prefWidth="66.0" text="Référence" />
+                                          <TableColumn fx:id="columnIdResRem" prefWidth="76.0" text="N° Responsable" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField layoutX="338.0" layoutY="21.0" prefHeight="28.0" prefWidth="161.0" promptText="recherche" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="recu_form" layoutX="198.0" layoutY="14.0" prefHeight="648.0" prefWidth="754.0" style="-fx-border-color: black; -fx-background-color: white;" visible="false">
+                           <children>
+                              <AnchorPane layoutX="5.0" layoutY="41.0" prefHeight="609.0" prefWidth="745.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="89.0" prefWidth="98.0" style="-fx-border-color: black;" />
+                                    <Label layoutX="134.0" layoutY="14.0" prefHeight="17.0" prefWidth="188.0" text="Ampasambazaha Fianarantsoa">
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font></Label>
+                                    <Label layoutX="135.0" layoutY="38.0" prefHeight="17.0" prefWidth="161.0" text="034 44 444 44">
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font></Label>
+                                    <Label layoutX="133.0" layoutY="62.0" prefHeight="17.0" prefWidth="164.0" text="ComputerStore@gmail.com">
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font></Label>
+                                    <Label layoutX="133.0" layoutY="88.0" prefHeight="17.0" prefWidth="164.0" text="ComputerStoreFacebook">
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font></Label>
+                                    <Label layoutX="8.0" layoutY="121.0" prefHeight="17.0" prefWidth="64.0" text="Reçu n° :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <Label fx:id="lblidRemRecu" layoutX="65.0" layoutY="121.0" prefHeight="17.0" prefWidth="56.0" text="ID Remise" />
+                                    <Label layoutX="135.0" layoutY="121.0" prefHeight="17.0" prefWidth="46.0" text="Date :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <Label fx:id="lblDateRemRecu" layoutX="184.0" layoutY="121.0" prefHeight="17.0" prefWidth="96.0" text="Date Remise" />
+                                    <Label layoutX="8.0" layoutY="138.0" prefHeight="17.0" prefWidth="67.0" text="Du client : ">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <Label fx:id="lblNomCliRemRecu" layoutX="69.0" layoutY="138.0" prefHeight="17.0" prefWidth="243.0" text="Nom et prénom du client" />
+                                    <Label layoutX="314.0" layoutY="138.0" prefHeight="17.0" prefWidth="321.0" text="Pour la demande du service apprès vente portant le n° : ">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <Label fx:id="lblNumDmdRemRecu" layoutX="635.0" layoutY="138.0" prefHeight="17.0" prefWidth="107.0" text="ID de la demande" />
+                                    <Label layoutX="8.0" layoutY="155.0" prefHeight="17.0" prefWidth="134.0" text="Cause de la demande :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <Label fx:id="lblCauseRemRecu" layoutX="137.0" layoutY="155.0" prefHeight="17.0" prefWidth="134.0" text="Cause de la demande" />
+                                    <AnchorPane layoutX="39.0" layoutY="177.0" prefHeight="129.0" prefWidth="530.0" style="-fx-border-color: black;">
+                                       <children>
+                                          <TableView fx:id="tblAncienPro" layoutX="6.0" layoutY="40.0" prefHeight="114.0" prefWidth="293.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="39.0">
+                                            <columns>
+                                              <TableColumn fx:id="columnRefProA" prefWidth="116.0" text="Rérérence" />
+                                              <TableColumn fx:id="columnNomProA" prefWidth="147.0" text="Nom" />
+                                                <TableColumn fx:id="columnDescProA" prefWidth="258.0" text="Description" />
+                                            </columns>
+                                          </TableView>
+                                          <Label layoutX="210.0" layoutY="14.0" prefHeight="17.0" prefWidth="98.0" text="Ancien produit" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="39.0" layoutY="353.0" prefHeight="137.0" prefWidth="531.0" style="-fx-border-color: black;">
+                                       <children>
+                                          <TableView fx:id="tblNouveauPro" layoutX="5.0" layoutY="41.0" prefHeight="113.0" prefWidth="332.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0">
+                                             <columns>
+                                                <TableColumn fx:id="columnRefProB" prefWidth="118.0" text="Rérérence" />
+                                                <TableColumn fx:id="columnNomProB" prefWidth="144.0" text="Nom" />
+                                                <TableColumn fx:id="columnDescProB" prefWidth="256.0" text="Description" />
+                                             </columns>
+                                          </TableView>
+                                          <Label layoutX="216.0" layoutY="14.0" prefHeight="17.0" prefWidth="98.0" text="Nouveau produit" />
+                                       </children>
+                                    </AnchorPane>
+                                    <FontAwesomeIconView glyphName="CHEVRON_DOWN" layoutX="282.0" layoutY="345.0" />
+                                    <FontAwesomeIconView glyphName="CHEVRON_DOWN" layoutX="282.0" layoutY="333.0" />
+                                    <FontAwesomeIconView glyphName="CHEVRON_DOWN" layoutX="282.0" layoutY="339.0" />
+                                    <Label layoutX="16.0" layoutY="502.0" prefHeight="17.0" prefWidth="351.0" text="Merci pour votre collaboration ! Computer Store vous remercie !" />
+                                    <Label layoutX="586.0" layoutY="265.0" prefHeight="17.0" prefWidth="145.0" text="Produit intervenu par :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <Label fx:id="lblNomTechRemRecu" layoutX="601.0" layoutY="282.0" prefHeight="17.0" prefWidth="97.0" text="Nom et prénom" />
+                                    <AnchorPane layoutX="600.0" layoutY="332.0" prefHeight="89.0" prefWidth="98.0" style="-fx-border-color: black;">
+                                       <children>
+                                          <ImageView fx:id="qrCodeImageViewTechRecu" fitHeight="86.0" fitWidth="95.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children></AnchorPane>
+                                    <Label layoutX="582.0" layoutY="430.0" prefHeight="17.0" prefWidth="134.0" text="Scannez ce code afin de" />
+                                    <Label layoutX="610.0" layoutY="464.0" prefHeight="17.0" prefWidth="78.0" text="du technicien !" />
+                                    <Label layoutX="582.0" layoutY="447.0" prefHeight="17.0" prefWidth="135.0" text="trouver les informations" />
+                                    <Label layoutX="16.0" layoutY="526.0" prefHeight="17.0" prefWidth="94.0" text="Le responsable : ">
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font></Label>
+                                    <Label fx:id="lblNomResRemRecu" layoutX="112.0" layoutY="526.0" prefHeight="17.0" prefWidth="244.0" text="Nom et Prénom(s)" />
+                                    <Label layoutX="586.0" layoutY="298.0" prefHeight="17.0" prefWidth="29.0" text="Le :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblDateInterRecu" layoutX="610.0" layoutY="298.0" prefHeight="17.0" prefWidth="123.0" text="Date de l'intervention" />
+                                 </children>
+                              </AnchorPane>
+                              <Button layoutX="336.0" layoutY="14.0" mnemonicParsing="false" text="Imprimer" />
+                              <Button fx:id="btnCloseRecu" layoutX="688.0" layoutY="14.0" mnemonicParsing="false" onAction="#formDialogRecu" text="Fermer" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="historique_form" layoutX="109.0" layoutY="100.0" prefHeight="425.0" prefWidth="688.0" style="-fx-border-color: black;" visible="false">
+                           <children>
+                              <TabPane layoutX="14.0" layoutY="41.0" prefHeight="365.0" prefWidth="642.0" style="-fx-border-color: black;" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="Tous">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tblTous" onMousePressed="#tblTransfertTous" prefHeight="354.0" prefWidth="640.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="columnMailTous" prefWidth="169.0" text="Adresse Mail" />
+                                                      <TableColumn fx:id="columnObjetTous" prefWidth="98.0" text="Objet" />
+                                                      <TableColumn fx:id="columnMessageTous" prefWidth="147.0" text="Message" />
+                                                      <TableColumn fx:id="columnDateTous" prefWidth="118.0" text="Date" />
+                                                      <TableColumn fx:id="columnStatutTous" prefWidth="118.0" text="Statut" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="Envoyé(s)">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tblEnvoye" onMousePressed="#tblTransfertEnvoye" prefHeight="354.0" prefWidth="640.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="columnMailEnvoye" prefWidth="169.0" text="Adresse Mail" />
+                                                      <TableColumn fx:id="columnObjetEnvoye" prefWidth="98.0" text="Objet" />
+                                                      <TableColumn fx:id="columnMessageEnvoye" prefWidth="233.0" text="Message" />
+                                                      <TableColumn fx:id="columnDateEnvoye" prefWidth="139.0" text="Date" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="Echoué(s)">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tblEchec" onMousePressed="#tblTransfertEchoue" prefHeight="354.0" prefWidth="640.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="columnMailEchec" prefWidth="169.0" text="Adresse Mail" />
+                                                      <TableColumn fx:id="columnObjetEchec" prefWidth="98.0" text="Objet" />
+                                                      <TableColumn fx:id="columnMessageEchec" prefWidth="232.0" text="Message" />
+                                                      <TableColumn fx:id="columnDateEchec" prefWidth="140.0" text="Date" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                              <Button layoutX="491.0" layoutY="14.0" mnemonicParsing="false" onAction="#Sup_Tous" text="Supprimer" />
+                              <Button layoutX="574.0" layoutY="14.0" mnemonicParsing="false" text="Renvoyer" />
+                              <Label fx:id="lblidMail" layoutX="277.0" layoutY="18.0" prefHeight="17.0" prefWidth="46.0" text="ID Mail" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="mdp_form" layoutX="335.0" layoutY="164.0" prefHeight="202.0" prefWidth="345.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK;" visible="false">
+                           <children>
+                              <Label alignment="CENTER" layoutX="65.0" layoutY="14.0" prefHeight="20.0" prefWidth="214.0" text="Veuillez entrer le mot de passe" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold Italic" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="75.0" layoutY="34.0" prefHeight="17.0" prefWidth="196.0" text="de l'administrateur principale !" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="txtmdpAdminPrinc" alignment="CENTER" layoutX="84.0" layoutY="89.0" prefHeight="35.0" prefWidth="177.0" promptText="Mot de passe" />
+                              <Button fx:id="btnShowPara" layoutX="107.0" layoutY="151.0" mnemonicParsing="false" onAction="#switchForm" text="Valider" />
+                              <Button fx:id="btnCloseMdpPrinc" layoutX="186.0" layoutY="151.0" mnemonicParsing="false" onAction="#formDialogMdpPrinc" text="Annuler" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="dialogFormMaj" layoutX="336.0" layoutY="69.0" prefHeight="437.0" prefWidth="344.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK;">
+                           <children>
+                              <AnchorPane layoutX="26.0" layoutY="25.0" prefHeight="104.0" prefWidth="115.0" style="-fx-border-color: BLACK;">
+                                 <children>
+                                    <ImageView fx:id="ImageAdminMaj" fitHeight="77.0" fitWidth="92.0" layoutX="12.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </AnchorPane>
+                              <Button layoutX="191.0" layoutY="65.0" mnemonicParsing="false" text="Importer" />
+                              <TextField fx:id="txtNomResMaj" layoutX="141.0" layoutY="164.0" prefHeight="25.0" prefWidth="185.0" />
+                              <TextField fx:id="txtPrenomMaj" layoutX="141.0" layoutY="206.0" prefHeight="25.0" prefWidth="185.0" />
+                              <TextField fx:id="txtAdrsMaj" layoutX="141.0" layoutY="247.0" prefHeight="25.0" prefWidth="185.0" />
+                              <TextField fx:id="txtTelMaj" layoutX="141.0" layoutY="289.0" prefHeight="25.0" prefWidth="185.0" />
+                              <Label layoutX="26.0" layoutY="168.0" prefHeight="17.0" prefWidth="94.0" text="Nom" />
+                              <Label layoutX="26.0" layoutY="210.0" prefHeight="17.0" prefWidth="94.0" text="Prenom" />
+                              <Label layoutX="26.0" layoutY="251.0" prefHeight="17.0" prefWidth="94.0" text="Adresse" />
+                              <Label layoutX="26.0" layoutY="293.0" prefHeight="17.0" prefWidth="94.0" text="Télephone" />
+                              <Button layoutX="94.0" layoutY="351.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Mettre à jour le profil !" />
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="btnShowProfil" layoutX="119.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Profil" />
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="GestionSAV.jnlp">
+  <information>
+    <title>GestionSAV</title>
+    <vendor>ACER</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="GestionSAV.jar" size="53905" download="eager" />
+    <jar href="lib\bridj-0.7.0.jar" size="935929" download="eager" />
+    <jar href="lib\core-3.5.1.jar" size="603414" download="eager" />
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.15-bin.jar" size="785998" download="eager" />
+    <jar href="lib\slf4j-api-1.7.2.jar" size="26083" download="eager" />
+    <jar href="lib\webcam-capture-0.3.12.jar" size="428314" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="GestionSAV" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="gestionsav.GestionSAV"  name="GestionSAV" />
+  <update check="always"/>
+</jnlp>

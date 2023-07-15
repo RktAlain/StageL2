@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21 juin 2023, 11:49:35
+    Author     : ACER
+*/
+
+/*Pannel gauche*/
+.left-form {
+    -fx-background-color: linear-gradient(to bottom right, #9631c4, #48349a);
+    -fx-border-color: #000;
+    -fx-border-width: .4px .0px .4px .4px;
+}
+
+/*Pannel droite*/
+.right-form {
+    -fx-background-color: #fff;
+    -fx-border-color: #000;
+    -fx-border-width: .4px .4px .4px .0px;
+}
+
+/*Bouton fermer*/
+.close {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.close:hover {
+    -fx-background-color: #dd101a;
+}
+
+/*Textfield*/
+.textfield {
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-border-color: #000;
+    -fx-border-width: .2px;
+}
+
+.textfield:focused {
+    -fx-background-color: #fff;
+    -fx-border-color: linear-gradient(to bottom right, #9631c4, #48349a);
+    -fx-border-width: .4px;  
+}
+
+/*Bouton connexion*/
+.login-btn {
+    -fx-background-color: linear-gradient(to bottom, #48349a,#48349a);
+    -fx-background-radius: 4px;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+    -fx-cursor: hand;
+}
+
+.login-btn:hover {
+    -fx-background-color: linear-gradient(to bottom, #48349a,#893499);
+}
+
+.forgot-btn {
+    -fx-background-color: white;
+    -fx-cursor: hand;
+}
